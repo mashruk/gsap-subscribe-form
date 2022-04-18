@@ -8,4 +8,10 @@ Forms are one of the essential key components on the internet. Despite being an 
 
 - We have only a submit button with a textarea but the way it is conveyed in an interactive form.
 
-- Accessible forms are hard
+- Making forms interactive is a bit challenging as you have to keep track of different input elements events.
+
+## Summary
+
+- `event.stopPropagation()` cancels the event from bubbling up, although it did not work for the form element. I thought I would get away without having to add `event.preventDefault()` on the form itself.
+
+- Had to add `onsubmit` handler to trigger `event.preventDefault()` just to stop the default behavior of the form element on successful completion of form submit.
