@@ -12,6 +12,7 @@ Forms are one of the essential key components on the internet. Despite being an 
 
 ## Summary
 
-- `event.stopPropagation()` cancels the event from bubbling up, although it did not work for the form element. I thought I would get away without having to add `event.preventDefault()` on the form itself.
-
+- In the early iteration, it was planned that the data would not show up on animation. I got a reference on the button dom element and added `event.stopPropagation()` that cancels the event from bubbling up, but it did not work for the form element. I thought I would get away without having to add `event.preventDefault()` on the form itself.
 - Had to add `onsubmit` handler to trigger `event.preventDefault()` just to stop the default behavior of the form element on successful completion of form submit.
+
+- But then, I thought it would be great to add something say, on submitting the form, data would pop up on the UI to show the result of the input in JSON. So that is what I did.
