@@ -14,11 +14,11 @@ form.onsubmit = function onSubmitHandler(event) {
   event.preventDefault();
 
   const values = Array.from(event.target.elements).reduce(
-    (accumulator, value) => {
-      if (value.type === "submit") {
+    (accumulator, prop) => {
+      if (prop.type === "submit") {
         return accumulator;
       }
-      accumulator[value.name] = value.value;
+      accumulator[prop.name] = prop.value?.trim();
       return accumulator;
     },
     {}
@@ -27,9 +27,12 @@ form.onsubmit = function onSubmitHandler(event) {
   const div = document.createElement("div");
   div.textContent = `${JSON.stringify(values, 2)}`;
   outputBox.appendChild(div);
+
   gsap.to(".output", {
+    delay: 1,
     height: "100px",
     padding: "10px",
+    transformOrigin: "bottom",
   });
 };
 

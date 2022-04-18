@@ -5957,12 +5957,14 @@ var outputBox = document.querySelector(".output");
 
 form.onsubmit = function onSubmitHandler(event) {
   event.preventDefault();
-  var values = Array.from(event.target.elements).reduce(function (accumulator, value) {
-    if (value.type === "submit") {
+  var values = Array.from(event.target.elements).reduce(function (accumulator, prop) {
+    var _prop$value;
+
+    if (prop.type === "submit") {
       return accumulator;
     }
 
-    accumulator[value.name] = value.value;
+    accumulator[prop.name] = (_prop$value = prop.value) === null || _prop$value === void 0 ? void 0 : _prop$value.trim();
     return accumulator;
   }, {});
   var div = document.createElement("div");
@@ -5970,8 +5972,10 @@ form.onsubmit = function onSubmitHandler(event) {
   outputBox.appendChild(div);
 
   _gsap.default.to(".output", {
+    delay: 1,
     height: "100px",
-    padding: "10px"
+    padding: "10px",
+    transformOrigin: "bottom"
   });
 };
 
@@ -6026,7 +6030,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56828" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57936" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
